@@ -1,0 +1,19 @@
+---
+name: dockerui
+description: A web interface for docker. http://docker.io
+keywords: docker, dockerui, web interface
+type: Default
+documentation: ''
+images:
+- name: dockerui_dockerui_latest
+  source: dockerui/dockerui:latest
+  category: App
+  type: Default
+  ports:
+  - host_port: '9000'
+    container_port: '9000'
+    proto: TCP
+  volumes:
+  - host_path: "/var/run/docker.sock"
+    container_path: "/var/run/docker.sock"
+  command: "--privileged"
